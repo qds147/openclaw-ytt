@@ -1,0 +1,46 @@
+{
+  "gateway": {
+    "port": 8080,
+    "bind": "lan",
+    "auth": {
+      "mode": "token",
+      "token": "${OPENCLAW_GATEWAY_TOKEN}"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "${OPENCLAW_AGENT_MODEL:-anthropic/claude-sonnet-4-5}"
+      },
+      "maxConcurrent": 3,
+      "timeoutSeconds": 72000,
+      "workspace": "/data/workspace"
+    },
+    "list": [
+      {
+        "id": "main",
+        "default": true,
+        "name": "OpenClaw",
+        "identity": { "name": "OpenClaw" }
+      }
+    ]
+  },
+  "models": {
+    "providers": {
+      "anthropic": {
+        "apiKey": "${ANTHROPIC_API_KEY}"
+      }
+    }
+  },
+  "plugins": {
+    "enabled": true,
+    "allow": [
+      "qclaw-llm-provider",
+      "ollama"
+    ]
+  }
+}
