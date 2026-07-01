@@ -9,6 +9,11 @@
     "tailscale": {
       "mode": "off",
       "resetOnExit": false
+    },
+    "http": {
+      "endpoints": {
+        "chatCompletions": { "enabled": true }
+      }
     }
   },
   "agents": {
@@ -34,6 +39,15 @@
       "anthropic": {
         "apiKey": "${ANTHROPIC_API_KEY}"
       }
+    }
+  },
+  "channels": {
+    "wechat-access": {
+      "enabled": true,
+      "token": "${WECHAT_TOKEN:-placeholder-replace-me}",
+      "wsUrl": "${QCLAW_WECHAT_WS_URL:-wss://placeholder/ws}",
+      "guid": "${WECHAT_GUID:-placeholder}",
+      "userId": "${WECHAT_USERID:-0}"
     }
   },
   "plugins": {
