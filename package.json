@@ -1,8 +1,10 @@
 {
   "name": "openclaw-cloud",
   "version": "1.0.0",
+  "description": "OpenClaw 24/7 cloud deployment on Railway",
   "scripts": {
-    "start": "openclaw gateway --port ${PORT:-8080} --bind lan"
+    "start": "bash start.sh",
+    "dev": "openclaw gateway --port ${PORT:-8080} --bind lan --verbose"
   },
   "dependencies": {
     "openclaw": "latest"
